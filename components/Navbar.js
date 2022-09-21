@@ -1,10 +1,13 @@
 import React from 'react'
 import Image  from 'next/dist/client/image'
+import { useState } from 'react';
 import LINK from 'next/link'
-const Navbar = () => {
+import { FaUserCircle } from 'react-icons/fa';
+const Navbar = ({key,user, logout}) => {
+  const [myaccount, setmyaccount] = useState(false)
   return (
     <>
-        <nav className="my-1 shadow-lg sticky top-0 bg-white">
+        <nav className="my-1 shadow-lg sticky top-0 bg-white" >
   <header className="text-gray-600 body-font">
     <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -25,9 +28,18 @@ const Navbar = () => {
         <LINK href="/courses"><a className=" hover:text-indigo-600 cursor-pointer ">Courses</a></LINK>
         <LINK href="/about"><a className=" hover:text-indigo-600 cursor-pointer ">About</a></LINK>
         <LINK href="/contact"><a className=" hover:text-indigo-600 cursor-pointer ">ContactUs</a></LINK>
-        <LINK href="/login"><button className="bg-indigo-500 hover:bg-indigo-600  py-1 px-2 rounded-md border border-black-600">
+      { myaccount && <div onMouseOver={()=>setmyaccount(true)} onMouseLeave={()=>setmyaccount(false)} className='absolute right-2 bg-blue-500 rounded-md p-2 top-12 px-5 '>
+         
+          <ul className='text-base'>
+            <li className=' hover:text-white  cursor-pointer'>My Account</li>
+            <li className=' hover:text-white  cursor-pointer'>Cources</li>
+            <li onClick={logout} className=' hover:text-white cursor-pointer '>Logout</li>
+          </ul>
+        </div>}
+        {user.value && <FaUserCircle onMouseOver={()=>setmyaccount(true)} onMouseLeave={()=>setmyaccount(false)} className='text-2xl' />}
+        { !user.value && <LINK href="/login"><button className="bg-indigo-500 hover:bg-indigo-600  py-1 px-2 rounded-md border border-black-600">
           Login
-        </button></LINK>
+        </button></LINK>}
         <ul></ul>
        
       </nav>

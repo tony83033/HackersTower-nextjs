@@ -1,8 +1,91 @@
-import React from 'react'
+//import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Router from 'next/router';
 const login = () => {
+  useEffect(() => {
+   if(localStorage.getItem('token')){
+    router.push('/');
+   }
+  }, [])
+  
+  const router = useRouter()
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const handleOnChange = (e)=>{
+    if(e.target.name == 'email'){
+      setemail(e.target.value);
+    }
+    if(e.target.name == 'password'){
+      setpassword(e.target.value);
+    }
+  }
+
+  const handleOnSubmit = async (e)=>{
+    e.preventDefault();
+    let data = {email,password};
+
+    let res =  await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/userlogin`, {
+    method: 'POST', // or 'PUT'
+    headers: {
+    'Content-Type': 'application/json',
+},
+  body: JSON.stringify(data),
+}) 
+let response = await res.json();
+console.log(response)
+
+setemail('')
+setpassword('')
+
+if(response.Success){
+  toast.success('successfully login', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+    localStorage.setItem("token",response.token);
+    setTimeout(() => {
+      router.push(`${process.env.NEXT_PUBLIC_HOST}`);
+    }, 1000);
+    
+} else if(response.error){
+  toast.error(response.error, {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}
+
+  }
   return (
     <><section className="h-screen">
+      
+      <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+
+
     <div className="container px-6 py-12 h-full">
       <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
         <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
@@ -13,11 +96,15 @@ const login = () => {
           />
         </div>
         <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
-          <form>
+          <form method='POST' onSubmit={handleOnSubmit}>
             {/* Email input */}
             <div className="mb-6">
               <input
                 type="text"
+                name="email"
+                onChange={handleOnChange}
+                value={email}
+                
                 className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder="Email address"
               />
@@ -26,6 +113,10 @@ const login = () => {
             <div className="mb-6">
               <input
                 type="password"
+                name="password"
+                onChange={handleOnChange}
+                value={password}
+                
                 className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder="Password"
               />

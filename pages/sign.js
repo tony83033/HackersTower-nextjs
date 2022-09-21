@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-
+import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Router, { useRouter } from 'next/router';
 const sign = () => {
-  const [email, setemail] = useState()
-  const [name, setname] = useState()
-  const [password, setpassword] = useState()
+  const router =useRouter()
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      router.push('/');
+    }
+  }, [])
+  
+  const [email, setemail] = useState('')
+  const [name, setname] = useState('')
+  const [password, setpassword] = useState('')
   const onChangeHandler = (e)=>{
     if(e.target.name=='name'){
       setname(e.target.value)
@@ -20,11 +28,13 @@ const sign = () => {
 
   const handleSubmit = async (e)=>{
     //e.preventDefault()
+   // e.preventDefault()
     e.preventDefault()
+   // e.preventDefault()
 
     let data = {name,email,password}
 
-  let res =  await fetch('http://localhost:3000/api/usersign', {
+  let res =  await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/usersign`, {
     method: 'POST', // or 'PUT'
     headers: {
     'Content-Type': 'application/json',
