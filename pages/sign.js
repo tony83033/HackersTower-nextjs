@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Router, { useRouter } from 'next/router';
-const sign = () => {
-  const router =useRouter()
-  useEffect(() => {
+import { useRouter } from 'next/router'
+const Sign = () => {
+  const router = useRouter();
+  const checkLogin = ()=>{
+    
     if(localStorage.getItem('token')){
-      router.push('/');
+        router.push('/');
     }
+  }
+  useEffect(() => {
+    checkLogin();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   const [email, setemail] = useState('')
@@ -80,7 +86,7 @@ pauseOnHover
       href="#"
       className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
     >
-      <img
+      <Image
         className="w-8 h-8 mr-2"
         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
         alt="logo"
@@ -170,4 +176,4 @@ pauseOnHover
   )
 }
 
-export default sign
+export default Sign

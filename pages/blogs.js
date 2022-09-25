@@ -61,10 +61,10 @@ export async function getServerSideProps(context) {
   if(!mongoose.connections[0].readyState){
     await mongoose.connect(process.env.MONGO_URL) 
 }
-  let myblogs = await Blog.find()
+  let myblogs = await Blog.find();
   return {
     props: {blogs: JSON.parse(JSON.stringify(myblogs))}, // will be passed to the page component as props
   }
 }
 
-export default blogs
+export default blogs;

@@ -1,19 +1,27 @@
 //import React from 'react'
 import React, { useState } from 'react'
+import Image from 'next/image';
 import Link from 'next/link'
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Router from 'next/router';
-const login = () => {
-  useEffect(() => {
-   if(localStorage.getItem('token')){
-    router.push('/');
-   }
-  }, [])
+
+const Login = () => {
+  const router = useRouter();
+  const checkLogin = ()=>{
+    
+    if(localStorage.getItem('token')){
+        router.push('/');
+    }
+  }
   
-  const router = useRouter()
+  useEffect(() => {
+   checkLogin();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
+ 
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const handleOnChange = (e)=>{
@@ -89,7 +97,7 @@ pauseOnHover
     <div className="container px-6 py-12 h-full">
       <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
         <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-          <img
+          <Image
             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
             className="w-full"
             alt="Phone image"
@@ -208,4 +216,4 @@ pauseOnHover
   )
 }
 
-export default login
+export default Login

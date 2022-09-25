@@ -31,6 +31,7 @@ function MyApp({ Component, pageProps }) {
       setuser({value:null});
       setkey(Math.random());
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query])
 
   const logout = ()=>{
