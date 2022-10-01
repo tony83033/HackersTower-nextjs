@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import mongoose from 'mongoose'
 import Blogs from '../../models/Blog'
-import connectDb  from '../../middleware/mongoose'
+
 const Blog = ({blogs}) => {
     
   console.log("My blog is ", blogs)

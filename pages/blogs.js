@@ -1,10 +1,10 @@
 import React from 'react'
 import Blog from '../models/Blog';
-import ConnectDb from '../middleware/mongoose'
+
 import mongoose from "mongoose"
 import Link from 'next/link';
 const blogs = ({blogs}) => {
-  console.log(blogs)
+  console.log("This is my blogs ",blogs)
   return (
     <>
     <div className="container">
@@ -20,14 +20,14 @@ const blogs = ({blogs}) => {
             <span className="font-semibold title-font text-gray-700">
               {item.category}
             </span>
-            <span className="mt-1 text-gray-500 text-sm">{item.createdAt.slice(0,10)}</span>
+            <span className="mt-1 text-gray-500 text-sm">{item.createdAt}</span>
           </div>
           <div className="md:flex-grow">
             <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
               {item.title}
             </h2>
             <p className="leading-relaxed">
-              {item.content.slice(0,210)}
+              {item.content}
             </p>
             <Link href={`/blog/${item.slug}`}><a className="text-indigo-500 inline-flex items-center mt-4">
               Read More
@@ -59,9 +59,10 @@ const blogs = ({blogs}) => {
 
 export async function getServerSideProps(context) {
   if(!mongoose.connections[0].readyState){
-    await mongoose.connect(process.env.MONGO_URL) 
+   await mongoose.connect(process.env.MONGO_URL) 
 }
   let myblogs = await Blog.find();
+  console.log("my blog from getserversideprops ", myblogs);
   return {
     props: {blogs: JSON.parse(JSON.stringify(myblogs))}, // will be passed to the page component as props
   }

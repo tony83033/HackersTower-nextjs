@@ -78,10 +78,17 @@ export default function Home() {
         </div>
       </div>
       <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-        <Image
-          className="object-cover object-center rounded"
+        <Image 
+          
+          
+          className="object-cover object-center rounded  "
+
+          width={500}
+          height={500}
+
           alt="hero"
-          src="sideimg.png"
+          src={'/sideimg.png'}
+         
         />
       </div>
     </div>
