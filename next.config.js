@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
+ 
 }
+
 module.exports = {
   trailingSlash: true,
-  images: {
-    loader: 'imgix',
-    path: '/',
-  },
+
+ // images.unoptimized = true
+ images: {
+  dangerouslyAllowSVG: true,
+  contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  unoptimized: true,
+ },
 }
 
 module.exports = nextConfig
