@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import Typewriter from "typewriter-effect";
+import Link from 'next/link';
 // import Head from 'next/dist/shared/lib/head'
 
 export default function Home() {
@@ -71,9 +72,9 @@ export default function Home() {
         </p>
         {/* <p class=" leading-relaxed">We make Hacking simple & easy to understand.</p> */}
         <div className="flex justify-center">
-          <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg">
+          <Link href={"/courses"}><a className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg">
             Get started
-          </button>
+          </a></Link>
           {/* <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">About</button> */}
         </div>
       </div>
@@ -254,9 +255,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-        Button
-      </button>
+      <Link href={"/courses"}><button className="flex mx-auto mt-16  text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+      Get started
+      </button></Link>
     </div>
   </section>
 </>

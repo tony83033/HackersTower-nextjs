@@ -22,7 +22,9 @@ const about = () => {
           <Image
             alt="team"
             className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-            src="https://dummyimage.com/80x80"
+            src="/team.png"
+            width={80}
+            height={80}
           />
           <div className="flex-grow">
             <h2 className="text-gray-900 title-font font-medium">
@@ -37,7 +39,9 @@ const about = () => {
           <Image
             alt="team"
             className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-            src="https://dummyimage.com/84x84"
+            src="/team.png"
+            width={80}
+            height={80}
           />
           <div className="flex-grow">
             <h2 className="text-gray-900 title-font font-medium">Sumit pal</h2>
@@ -50,7 +54,9 @@ const about = () => {
           <Image
             alt="team"
             className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-            src="https://dummyimage.com/88x88"
+            src="/team.png"
+            width={80}
+            height={80}
           />
           <div className="flex-grow">
             <h2 className="text-gray-900 title-font font-medium">

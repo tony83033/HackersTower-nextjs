@@ -3,6 +3,7 @@ import Image  from 'next/dist/client/image'
 import { useState } from 'react';
 import LINK from 'next/link'
 import { FaUserCircle } from 'react-icons/fa';
+import Link from 'next/link';
 const Navbar = ({key,user, logout}) => {
   const [myaccount, setmyaccount] = useState(false)
   return (
@@ -10,7 +11,7 @@ const Navbar = ({key,user, logout}) => {
         <nav className="my-1 shadow-lg sticky top-0 bg-white" >
   <header className="text-gray-600 body-font">
     <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <Link href={"/"}><a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
         <Image
           className="w-150 h-10 "
           src="/logo.png"
@@ -20,7 +21,7 @@ const Navbar = ({key,user, logout}) => {
           height={40}
 
         />
-      </a>
+      </a></Link>
       <nav className="md:ml-auto flex flex-wrap items-center text-base space-x-8 justify-center font-bold">
         <LINK href="/"><a className="  hover:text-indigo-600 cursor-pointer ">Home</a></LINK>
         <LINK href="/blogs"><a className=" hover:text-indigo-600 cursor-pointer ">Blog</a></LINK>
