@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
   const [key, setkey] = useState(0)
  
   useEffect(() => {
-    console.log("Use state is running")
+   
    
     router.events.on('routeChangeComplete', ()=>{
       setProgress(100);

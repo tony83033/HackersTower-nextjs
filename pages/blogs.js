@@ -4,7 +4,7 @@ import Blog from '../models/Blog';
 import mongoose from "mongoose"
 import Link from 'next/link';
 const blogs = ({blogs}) => {
-  console.log("This is my blogs ",blogs)
+  // console.log("This is my blogs ",blogs)
   return (
     <>
     <div className="container">
@@ -62,7 +62,7 @@ export async function getServerSideProps(context) {
    await mongoose.connect(process.env.MONGO_URL) 
 }
   let myblogs = await Blog.find();
-  console.log("my blog from getserversideprops ", myblogs);
+  // console.log("my blog from getserversideprops ", myblogs);
   return {
     props: {blogs: JSON.parse(JSON.stringify(myblogs))}, // will be passed to the page component as props
   }

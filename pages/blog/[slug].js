@@ -5,7 +5,7 @@ import Blogs from '../../models/Blog'
 
 const Blog = ({blogs}) => {
     
-  console.log("My blog is ", blogs)
+  
   return (
     
       <>

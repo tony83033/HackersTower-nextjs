@@ -13,7 +13,7 @@ const  handler = async(req, res)=>{
         slug: req.body.slug,
 
       });
-      console.log(req.body);
+      // console.log(req.body);
       await myblog.save();
       res.status(200).json({message: "Blog save Successfully"});
 
