@@ -66,12 +66,12 @@ const contact = () => {
          
          <div className='container'>
           <h3>Last updated on Jun 7th 2023</h3>
-          <p> You may contact us using the information below:</p>   
-          <p>Merchant Legal entity name: HACKERSTOWER</p>
-          <p>Registered Address: RANGAICHAK GODDA JHARKHAND 813208</p>
-          <p>Telephone No: 8370820718
+          <p className='mt-2 font-bold text-black-900'> You may contact us using the information below:</p>   
+          <p className='mt-2 font-bold text-black-900'>Merchant Legal entity name: HACKERSTOWER</p>
+          <p className='mt-2 font-bold text-black-900'>Registered Address: RANGAICHAK GODDA JHARKHAND 813208</p>
+          <p className='mt-2 font-bold text-black-900'>Telephone No: 8370820718
 </p>
-<p>E-Mail ID: hackerstower@gmail.com</p>
+<p className='mt-2 font-bold text-black-900'>E-Mail ID: hackerstower@gmail.com</p>
       </div>
           {/* <p />
           <p /> */}
