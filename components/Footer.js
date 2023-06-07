@@ -48,19 +48,11 @@ const Footer = () => {
     </p>
 
       </a>
-      <a className="ml-3 text-gray-500 cursor-pointer"  href='https://www.instagram.com/hackerstowerofficial/' target="_blank" rel="noreferrer">
-        <svg
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          className="w-5 h-5"
-          viewbox="0 0 24 24"
-        >
-          <rect width={20} height={20} x={2} y={2} rx={5} ry={5} />
-          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-        </svg>
+      <a className="ml-3 text-gray-500 cursor-pointer"  href='https://merchant.razorpay.com/policy/LyNCFirGcMeVKd/shipping' target="_blank" rel="noreferrer">
+      <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+      Shipping & Delivery Policy
+      
+    </p>
       </a>
       <a className="ml-3 text-gray-500">
         <svg

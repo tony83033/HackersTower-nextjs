@@ -63,9 +63,18 @@ const contact = () => {
           </button>
         </div>
         <div className="p-2 w-full pt-8 mt-4 border-t border-gray-200 text-center">
-          <a className="text-indigo-500">contactus@hackerstower.in</a>
-          <p />
-          <p />
+         
+         <div className='container'>
+          <h3>Last updated on Jun 7th 2023</h3>
+          <p> You may contact us using the information below:</p>   
+          <p>Merchant Legal entity name: HACKERSTOWER</p>
+          <p>Registered Address: RANGAICHAK GODDA JHARKHAND 813208</p>
+          <p>Telephone No: 8370820718
+</p>
+<p>E-Mail ID: hackerstower@gmail.com</p>
+      </div>
+          {/* <p />
+          <p /> */}
           <span className="inline-flex">
             <a className="text-gray-500">
               <svg
