@@ -54,7 +54,7 @@ const Footer = () => {
       
     </p>
       </a>
-      <a className="ml-3 text-gray-500">
+      {/* <a className="ml-3 text-gray-500">
         <svg
           fill="currentColor"
           stroke="currentColor"
@@ -70,7 +70,7 @@ const Footer = () => {
           />
           <circle cx={4} cy={4} r={2} stroke="none" />
         </svg>
-      </a>
+      </a> */}
     </span>
 
     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
